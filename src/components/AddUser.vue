@@ -11,6 +11,7 @@
 <script>
 import UserAlert from './UserAlert.vue';
 import useAlert from "../composables/useAlert";
+import {ref} from "vue";
 
 export default {
     components: {
@@ -18,7 +19,8 @@ export default {
     },
     
     setup() {
-       const [alertIsVisible, showAlert, hideAlert] = useAlert()
+        const isVisible = ref(false)
+       const [alertIsVisible, showAlert, hideAlert] = useAlert(isVisible)
         
         return {
             alertIsVisible,
